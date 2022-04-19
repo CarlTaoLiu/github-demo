@@ -1,17 +1,17 @@
 
 import { connect } from 'react-redux'
+import { useParams } from 'react-router'
 
-import React, { Component } from 'react'
+import React from 'react'
 
- class Detail extends Component {
-  
-  render() {
+ const Detail = () =>  {
+   const test = useParams()
+    console.log(test);
     return (
       <div style={{padding:20}}>
-      <h2>这是用户仓库详情界面</h2>
-  </div>
+        <h2>这是用户仓库详情界面</h2>
+      </div>
     )
-  }
 }
 
 

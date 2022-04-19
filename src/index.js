@@ -11,6 +11,8 @@ import {Home,Detail} from './pages'
  
 import {BrowserRouter as Router ,Route,Routes} from 'react-router-dom' 
 
+// import { hashHistory } from 'react-router'
+
 createRoot(document.getElementById('container')).render(    
 
             <Provider store={store}>
@@ -18,7 +20,7 @@ createRoot(document.getElementById('container')).render(
                 <Routes>
                         <Route path="/" element={<App />}>
                             <Route path='home' element = {<Home />}/>
-                            <Route path='detail/:id' element = {<Detail />}/>
+                            <Route path='detail/:username/:name' element = {<Detail />}/>
                             <Route
                                 path="*"
                                 element={

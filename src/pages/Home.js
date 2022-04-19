@@ -7,10 +7,11 @@ import { connect } from 'react-redux'
 import { InitRequest } from '../actions/repos'
 
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+
+import { Link } from "react-router-dom";
 
  class Home extends Component {
-   constructor(){
+   constructor(props){
      super()
      this.state = {
        username : '',
@@ -22,6 +23,7 @@ import {Link} from 'react-router-dom'
       getRepos()
    }
   render() {
+    console.log(this.props, 'home props');
     return (
       <div style={{padding:20}}>
         <h2>主页</h2>
@@ -58,7 +60,7 @@ import {Link} from 'react-router-dom'
               this.state.data.map((item)=>{
                 return(
                   <li key={item.id}>
-                    <Link to ={`/detail/${item.id}`}> {item.name}</Link>
+                    <Link to={`/detail/${this.state.username}/${item.name}`}> {item.name}</Link>
                   </li>
                 )
               })
