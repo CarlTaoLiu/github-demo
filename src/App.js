@@ -1,28 +1,46 @@
 import React from 'react'
 
-import {Routes,Route,Link} from 'react-router-dom'
+import {Routes,Route,Link,Outlet} from 'react-router-dom'
 
 import { Home,Detail } from './pages'
 
+import 'antd/dist/antd.css'
+
+import './index.css'
+
+import { Layout } from 'antd'
+
+const { Header, Footer, Sider, Content } = Layout;
 
 export default function App() {
   return (
-        <div>
-          <nav style={{margin:10}}>
-                <Link to ='/' style={{padding:5}}>
-                    Home
-                </Link>
-                <Link to ='/detail' style={{padding:5}}>
-                    detail
-                </Link>
+    <>
+    {/* <Layout>
+        <Sider> */}
+        <nav>
+        <Link to ='/home' style={{padding:5}}>
+            Home
+        </Link> | {' '}
+        <Link to ='/detail' style={{padding:5}}>
+            detail
+        </Link> 
+        <Outlet/>
+        </nav>
 
-         </nav>
-            <Routes>
-                <Route path='/' element = {<Home />}/>
-                <Route path='/detail' element = {<Detail />}/>
-            </Routes>
 
-        </div>
+        {/* </Sider>
+        <Layout>
+            <Header>header</Header>
+            <Content>
+                <Routes>
+                    <Route path='/' element = {<Home />}/>
+                    <Route path='/detail/:id' element = {<Detail />}/>
+                </Routes>
+            </Content>
+            <Footer>Footer</Footer>
+        </Layout>
+    </Layout> */}
+</>
  
   )
 }

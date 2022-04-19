@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { InitRequest } from '../actions/repos'
 
 import React, { Component } from 'react'
-
+import {Link} from 'react-router-dom'
 
  class Home extends Component {
    constructor(){
@@ -16,6 +16,10 @@ import React, { Component } from 'react'
        username : '',
        data : []
      }
+   }
+
+   doRequest = (username) => {
+      getRepos()
    }
   render() {
     return (
@@ -53,7 +57,9 @@ import React, { Component } from 'react'
             {
               this.state.data.map((item)=>{
                 return(
-                  <li key={item.id}>{item.name}</li>
+                  <li key={item.id}>
+                    <Link to ={`/detail/${item.id}`}> {item.name}</Link>
+                  </li>
                 )
               })
             }

@@ -1,10 +1,10 @@
 
-
 import { connect } from 'react-redux'
 
 import React, { Component } from 'react'
 
  class Detail extends Component {
+  
   render() {
     return (
       <div style={{padding:20}}>

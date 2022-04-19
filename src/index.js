@@ -7,13 +7,29 @@ import { createRoot } from 'react-dom/client';
 import store from "./store";
 
 import App from "./App";
-
+import {Home,Detail} from './pages'
+ 
 import {BrowserRouter as Router ,Route,Routes} from 'react-router-dom' 
 
 createRoot(document.getElementById('container')).render(    
-    <Router>
+
             <Provider store={store}>
-                <App />
+                <Router>
+                <Routes>
+                        <Route path="/" element={<App />}>
+                            <Route path='home' element = {<Home />}/>
+                            <Route path='detail/:id' element = {<Detail />}/>
+                            <Route
+                                path="*"
+                                element={
+                                    <main style={{ padding: "1rem" }}>
+                                    <p>There's nothing here!</p>
+                                    </main>
+                                }
+                            />   
+                        </Route>
+                </Routes> 
+                </Router>
             </Provider>
-    </Router>
+
     );
