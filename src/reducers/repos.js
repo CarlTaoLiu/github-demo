@@ -1,10 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 
-import actionType from '../actions/actionType'
+import * as actionType from '../actions/actionType'
 
 const initState = {
-    repoName : '',
-    repoUrl : ''
+    isREQUEST_SUCCESS:false,
+    name : '',
+    html_url : ''
 }
 
 export default (state = initState,action) => {
@@ -12,7 +13,9 @@ export default (state = initState,action) => {
         case actionType.REQUEST_SUCCESS:
             {
                 return {
-                    ...state
+                    ...state,
+                    ...action.data,
+                    isREQUEST_SUCCESS:true
                 }
             }
         default:
