@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
       getRepos()
    }
   render() {
-    console.log(this.props, 'home props');
+    // console.log(this.props, 'home props');
     return (
       <div style={{padding:20}}>
         <h2>主页</h2>
@@ -43,6 +43,7 @@ import { Link } from "react-router-dom";
         />
         <button onClick={
           () => getRepos(this.state.username).then(resp => {
+            console.log(resp)
             if(resp !== [] ){
               return this.setState({
                 data:resp
