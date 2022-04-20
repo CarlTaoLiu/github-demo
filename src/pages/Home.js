@@ -1,5 +1,3 @@
-// import React,{useState} from 'react'
-
 import { getRepos } from '../getInfo'
 
 import { connect } from 'react-redux'
@@ -11,6 +9,18 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 
 import store from '../store';
+
+import 'antd/dist/antd.css';
+
+import { Input, Space, List, Avatar} from 'antd';
+
+
+const { Search } = Input;
+
+
+// import { createBrowserHistory } from 'history';
+
+// const history = createBrowserHistory();
 
  class Home extends Component {
    constructor(props){
@@ -34,14 +44,43 @@ import store from '../store';
     })
    }
    
+   
   render(){
     const { data } = this.state
-    console.log(this.props, 'props');
-    console.log(data,'data')
+    // console.log(this.props, 'props');
+    // console.log(data,'data')
+    const onSearch = value => {
+      if(value === ''){
+        alert('用户名为空！')
+        return
+      }else{
+        this.setState({username:value})
+        setTimeout(() => this.doRequest(this.state.username), 1000)
+      }
+     };
+
+    //  const Title = [
+    //   data ? (
+    //     data.map((item)=>{
+    //       return {
+    //         title:item.name,
+    //         description:item.description
+    //       }
+    //     })
+    //   ) : null
+    // ];
+    // for(let i in Title){
+    //   console.log(Title[i])
+
+    // }
+
     return (
+      
       <div style={{padding:20}}>
-        <h2>主页</h2>
-        <input type='text' placeholder='请输入github用户名' value={this.state.username} 
+        <Space direction="vertical">
+          <Search placeholder='请输入github用户名' onSearch={onSearch} enterButton />
+        
+        {/* <input type='text' placeholder='请输入github用户名' value={this.state.username} 
         onChange={(e)=>{
             // console.log(e);
             this.setState({
@@ -54,15 +93,16 @@ import store from '../store';
             username: e.target.value
           })}
         }
-        />
-        <button onClick={ () => {
+        /> */}
+
+        {/* <button onClick={ () => {
           this.doRequest(this.state.username)
           }
         }>
           搜索
-        </button>
-        <label>
-          <ul>
+        </button> */}
+        {/* <label>
+          <ul >
             {   
               data ? (
                 data.map((item)=>{
@@ -75,7 +115,22 @@ import store from '../store';
               ) : null
             } 
           </ul>
-        </label>
+        </label> */}
+
+      <List
+          itemLayout="horizontal"
+          dataSource={data}
+          renderItem={item => (
+            <List.Item>
+              <List.Item.Meta
+                // avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+                title={<Link to={`/detail/${this.state.username}/${item.name}`}> {item.name}</Link>}
+                description={item.description}
+              />
+            </List.Item>
+          )}
+        />
+        </Space>
     </div>
     )
     
@@ -85,7 +140,7 @@ import store from '../store';
 const mapStateToProps = state => {
   console.log(state, 'state')
   const oldData = state.repos || []
-  console.log(oldData)
+  console.log(oldData,'oldData')
   return {
     oldData,
   }

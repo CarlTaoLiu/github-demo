@@ -9,7 +9,7 @@ const initState = {
 
 export default (state = initState,action) => {
     
-    console.log(action, 'caa')
+    // console.log(action, 'action')
     switch(action.type){
         case actionType.REQUEST_SUCCESS:
             {

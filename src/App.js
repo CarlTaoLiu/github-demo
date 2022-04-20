@@ -2,26 +2,22 @@ import React from 'react'
 
 import {Link,Outlet} from 'react-router-dom'
 
-// import { Home,Detail } from './pages'
+import { Button } from 'antd'
 
-// import 'antd/dist/antd.css'
-
-// import './index.css'
-
-// import { Layout } from 'antd'
-
-// const { Header, Footer, Sider, Content } = Layout;
+import './App.css'
 
 export default function App() {
   return (
     <>
         <nav>
-        <Link to ='/home' style={{padding:5}}>
-            Home
-        </Link> | {' '}
-        <Link to ='/detail' style={{padding:5}}>
-            detail
-        </Link> 
+        <Button type='primary'>
+          <Link to ='/home' style={{padding:5}}>
+              <span style={{color:'black'}}><b>Home</b></span>
+          </Link> | {' '}
+          <Link to ='/detail' style={{padding:5}}>
+              <span style={{color:'black'}}><b>Detail</b></span>
+          </Link> 
+        </Button>
         <Outlet/>
         </nav>
     </>

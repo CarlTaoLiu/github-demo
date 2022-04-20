@@ -4,7 +4,7 @@ import * as actionType from './actionType'
 
  
 export const InitRequest = (username,data) => {
-    console.log('requesting data:',data)
+    // console.log('requesting data:',data)
     return {
         type:actionType.REQUEST_SUCCESS,
         username,
