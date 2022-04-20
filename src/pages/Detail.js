@@ -7,33 +7,25 @@ import { getReposInfo } from '../getInfo'
 import React,{ useState, useEffect } from 'react'
 
  const Detail = () =>  {
-   const [reposContents,setReposContents] = useState()
    const test = useParams()
    const [username,reposname] = [test.username,test.name]
-   console.log(username,reposname)
-
-  setTimeout(
-    useEffect(() => {
-      getReposInfo(username,reposname).then(resp => {
-        // let arr = []
-        // for(let i in resp){
-        //   arr.push(resp[i])
-        // }
-        // console.log(resp)
-        setReposContents({
-          reposContents : resp
-        })
-      })
-    },[]),1000
-   )
-
-    console.log(1)
+  //  console.log(username,reposname)
+  const [reposContents,setReposContents] = useState([])
+ 
+   useEffect(() => {
+    getReposInfo(username,reposname).then(resp => {
+      setReposContents(resp)
+    })
+    },[])
+    console.log(reposContents)
     return (
       <div style={{padding:20}}>
         <h2>用户仓库详情界面</h2>
         <ul>
           {
-            
+            reposContents.map((item) => {
+              return <li key={item.sha}>{item.name}</li>
+            })
           }
         </ul>
       </div>
