@@ -10,7 +10,7 @@ import React,{ useState, useEffect } from 'react'
    const test = useParams()
    const [username,reposname] = [test.username,test.name]
   //  console.log(username,reposname)
-  const [reposContents,setReposContents] = useState([])
+   const [reposContents,setReposContents] = useState([])
  
    useEffect(() => {
     getReposInfo(username,reposname).then(resp => {

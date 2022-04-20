@@ -3,20 +3,17 @@
 import * as actionType from '../actions/actionType'
 
 const initState = {
-    isREQUEST_SUCCESS:false,
-    name : '',
-    html_url : ''
+    username:'',
+    data:null
 }
 
 export default (state = initState,action) => {
+    
+    console.log(action, 'caa')
     switch(action.type){
         case actionType.REQUEST_SUCCESS:
             {
-                return {
-                    ...state,
-                    ...action.data,
-                    isREQUEST_SUCCESS:true
-                }
+                return {...action}
             }
         default:
             {

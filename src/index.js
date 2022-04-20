@@ -7,11 +7,14 @@ import { createRoot } from 'react-dom/client';
 import store from "./store";
 
 import App from "./App";
+
 import {Home,Detail} from './pages'
  
 import {BrowserRouter as Router ,Route,Routes} from 'react-router-dom' 
 
 // import { hashHistory } from 'react-router'
+
+window.store = store
 
 createRoot(document.getElementById('container')).render(    
 

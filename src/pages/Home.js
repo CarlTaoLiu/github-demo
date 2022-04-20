@@ -10,20 +10,34 @@ import React, { Component } from 'react'
 
 import { Link } from "react-router-dom";
 
+import store from '../store';
+
  class Home extends Component {
    constructor(props){
-     super()
+     super(props)
      this.state = {
-       username : '',
-       data : []
+       username : props.oldData.username || '',
+       data: props.oldData.data || [],
      }
    }
-
    doRequest = (username) => {
-      getRepos()
+    getRepos(username).then(resp => {
+      this.setState({
+        data: resp,
+        username: username
+      })
+      store.dispatch(InitRequest(username,resp))}
+    ).catch(() => {
+      return{
+        Msg:'Error'
+      }
+    })
    }
-  render() {
-    // console.log(this.props, 'home props');
+   
+  render(){
+    const { data } = this.state
+    console.log(this.props, 'props');
+    console.log(data,'data')
     return (
       <div style={{padding:20}}>
         <h2>主页</h2>
@@ -41,41 +55,39 @@ import { Link } from "react-router-dom";
           })}
         }
         />
-        <button onClick={
-          () => getRepos(this.state.username).then(resp => {
-            console.log(resp)
-            if(resp !== [] ){
-              return this.setState({
-                data:resp
-              })
-            }else{
-              alert('未找到该用户')
-            }  
-        })
+        <button onClick={ () => {
+          this.doRequest(this.state.username)
+          }
         }>
           搜索
         </button>
         <label>
           <ul>
-            {
-              this.state.data.map((item)=>{
-                return(
-                  <li key={item.id}>
-                    <Link to={`/detail/${this.state.username}/${item.name}`}> {item.name}</Link>
-                  </li>
-                )
-              })
-            }
+            {   
+              data ? (
+                data.map((item)=>{
+                  return(
+                    <li key={item.id}>
+                      <Link to={`/detail/${this.state.username}/${item.name}`}> {item.name}</Link>
+                    </li>
+                  )
+                })
+              ) : null
+            } 
           </ul>
         </label>
     </div>
     )
+    
   }
 }
 
 const mapStateToProps = state => {
-  return{
-    ...state.repos
+  console.log(state, 'state')
+  const oldData = state.repos || []
+  console.log(oldData)
+  return {
+    oldData,
   }
 }
 
