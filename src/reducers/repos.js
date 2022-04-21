@@ -4,7 +4,7 @@ import * as actionType from '../actions/actionType'
 
 const initState = {
     username:'',
-    data:null
+    data:[]
 }
 
 export default (state = initState,action) => {

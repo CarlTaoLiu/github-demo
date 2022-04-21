@@ -15,11 +15,8 @@ export const InitRequest = (username,data) => {
 // export const requestAction = (username) => {
 //     getRepos(username)
 //         .then(resp => {
-//             const data = resp
-//             const action = InitRequest(data)
-//             store.dispatch(action)
+//             store.dispatch(InitRequest(username,resp))
+//         }).catch((Error) => {
+//             console.log(Error)
 //         })
-//         .catch(console.log('===================================='),
-//         console.log('Error'),
-//         console.log('===================================='))
 // }

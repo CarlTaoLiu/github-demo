@@ -8,33 +8,10 @@ import store from "./store";
 
 import App from "./App";
 
-import {Home,Detail} from './pages'
- 
-import {BrowserRouter as Router ,Route,Routes} from 'react-router-dom' 
-
-// import { hashHistory } from 'react-router'
-
-window.store = store
+import 'antd/dist/antd.css'
 
 createRoot(document.getElementById('container')).render(    
-
-            <Provider store={store}>
-                <Router>
-                <Routes>
-                        <Route path="/" element={<App />}>
-                            <Route path='home' element = {<Home />}/>
-                            <Route path='detail/:username/:name' element = {<Detail />}/>
-                            <Route
-                                path="*"
-                                element={
-                                    <main style={{ padding: "1rem" }}>
-                                    <p>There's nothing here!</p>
-                                    </main>
-                                }
-                            />   
-                        </Route>
-                </Routes> 
-                </Router>
-            </Provider>
-
-    );
+    <Provider store={store}>
+        <App/>
+    </Provider>
+)
