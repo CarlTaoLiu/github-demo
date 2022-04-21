@@ -1,2 +1,2 @@
-export { default as Header } from './Header'
-export { default as SiderMenu } from './SiderMenu' 
+export { default as Head } from './Head'
+export { default as Sidebar } from './Sidebar' 

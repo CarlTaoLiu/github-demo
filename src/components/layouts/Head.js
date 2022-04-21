@@ -11,7 +11,7 @@ export default function index() {
     return (
         <Header className="site-layout-background" style={{backgroundColor:'blue'}}>
             <div style={{ float: 'right' }}>
-                <Link to="/">
+                <Link to="/home">
                     <Button type="primary" danger>用户仓库</Button>
                 </Link>
             </div>

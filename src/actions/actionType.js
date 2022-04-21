@@ -1,3 +1,4 @@
 //repos
 
 export const REQUEST_SUCCESS = 'REQUEST_SUCCESS'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'

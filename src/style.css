@@ -1,7 +1,7 @@
 #container,body,html {
     height: 100%;
   }
-  
+
 .ant-layout {
     display: flex;
     width: 100%;
@@ -28,5 +28,3 @@
   .site-layout .site-layout-background {
     background: #fff;
   }
-
-  
