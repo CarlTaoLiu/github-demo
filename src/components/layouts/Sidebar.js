@@ -25,6 +25,7 @@ export default function index() {
   return (
     
     <Menu
+      className='menu'
       theme="dark"
       mode="inline"
       defaultSelectedKeys={['1']}>
@@ -36,6 +37,5 @@ export default function index() {
         })
       }
       </Menu>
-
   )
 }

@@ -1,5 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React,{ useState, useEffect } from 'react'
-import { connect } from 'react-redux'
 import { useParams } from 'react-router'
 import { Link } from "react-router-dom";
 
@@ -9,8 +9,7 @@ import { getReposInfo } from '../getInfo'
 
 
 import routes from '.';
-
- const Detail = (props) =>  {
+  const Detail = (props) =>  {
    const test = useParams()
    const [username,reposname] = [test.username,test.name]
    console.log(props, 'props')
@@ -44,5 +43,4 @@ import routes from '.';
   }
 }
 
-
-export default connect()(Detail)
+export default Detail

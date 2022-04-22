@@ -3,12 +3,14 @@ import { Switch, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Detail from './pages/Detail'
 import LoginPage from './pages/LoginPage'
-
-import "./css/index.css"
 import { Head, Sidebar } from './components/layouts'
 import { Layout } from 'antd'
+import "./css/index.css"
+const { Sider, Content } = Layout
 
-const {Sider, Content} =Layout
+
+
+
 
 export default function App() {
   return (
@@ -46,7 +48,6 @@ export default function App() {
             </Route>
           })}
         </Switch> */}
-
     </div>
   )
 }
