@@ -4,29 +4,30 @@ import { Layout, Menu } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 
-const { Sider }  = Layout
+
 
 const List = [
     {
         key: '1',
         icon: <UserOutlined />,
-        label: '用户仓库',
-        path:'/'
+        label: '用户登录',
+        path:'/login'
     },
     {
         key: '2',
         icon: <UserOutlined />,
-        label: '仓库详情',
-        path:'/detail'
+        label: '用户仓库',
+        path:'/home'
     },
 
 ]
 
 export default function index() {
   return (
-    <Sider trigger={null} collapsible collapsed={false}>
-    <div className="logo" />
+   
+    <div>
     <Menu
+      className='menu'
       theme="dark"
       mode="inline"
       defaultSelectedKeys={['1']}>
@@ -38,6 +39,6 @@ export default function index() {
         })
       }
       </Menu>
-    </Sider>
+      </div>
   )
 }

@@ -9,8 +9,7 @@ import { getReposInfo } from '../getInfo'
 import { Head } from '../components/layouts'
 
 import routes from '.';
-
- const Detail = (props) =>  {
+  const Detail = (props) =>  {
    const test = useParams()
    const [username,reposname] = [test.username,test.name]
    console.log(props, 'props')
@@ -25,7 +24,7 @@ import routes from '.';
   if(routes[2].isAuthenticated){
     return (
       <div style={{padding:20}}>
-        <Head/>
+        
           <Space>
             <List
               itemLayout="horizontal"
@@ -45,5 +44,4 @@ import routes from '.';
   }
 }
 
-
-export default connect()(Detail)
+export default Detail

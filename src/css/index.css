@@ -1,0 +1,35 @@
+#container,body,html {
+    height: 100%;
+  }
+.App,menu {
+  height: 100%;
+}
+.ant-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+  }
+.trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .trigger:hover {
+    color: #1890ff;
+  }
+  
+  .logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+  .loginButton{
+    background: rgba(240, 242, 245, 0.3);
+  }
