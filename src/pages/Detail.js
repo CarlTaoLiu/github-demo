@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Space, List, Avatar} from 'antd';
 
 import { getReposInfo } from '../getInfo'
-import { Head } from '../components/layouts'
+
 
 import routes from '.';
 
@@ -25,7 +25,6 @@ import routes from '.';
   if(routes[2].isAuthenticated){
     return (
       <div style={{padding:20}}>
-        <Head/>
           <Space>
             <List
               itemLayout="horizontal"

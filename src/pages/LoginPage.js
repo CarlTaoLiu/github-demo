@@ -18,22 +18,10 @@ const LoginPage = (props) => {
         store.dispatch(InitLogin(newRoutes))
         history.push('/home')
     }
-    const doLogout = (routes) =>{
-        routes.map((item) => {
-            // console.log(item.isAuthenticated)
-            item.isAuthenticated = !item.isAuthenticated
-            // console.log(item.isAuthenticated)
-            return routes
-        })
-        setTimeout(() => store.dispatch(InitLogin(routes)),0)
-        
-    }
     return (
       <div>
         <p>You must log in to view the pages </p>
         <button onClick={() => doLogin(routes)}>Log in</button>
-        <br/>
-        <button onClick={() => doLogout(routes)}>Log out</button>
       </div>
 
     );
