@@ -4,25 +4,19 @@ import { connect } from 'react-redux';
 import { InitLogin } from '../actions/login'
 import store from '../store';
 import routes from '.';
+import { useHistory } from "react-router-dom"
 
-function LoginPage(props) {
-    
-    console.log(props)
-    // const handleLogin = (routes) => {
-    //     routes.map((item) => {
-    //         console.log(!item.isAuthenticated)
-    //         return (!item.isAuthenticated)
-    //     })
-    // }
+const LoginPage = (props) => {
+    let history = useHistory()
     const doLogin = (routes) =>{
-        routes.map((item) => {
-            // console.log(item.isAuthenticated)
-            item.isAuthenticated = !item.isAuthenticated
-            // console.log(item.isAuthenticated)
-            return routes
+        const newRoutes = routes.map((item) => {
+            if (!item.isAuthenticated) {
+              item.isAuthenticated = !item.isAuthenticated
+            }
+            return item
         })
-        setTimeout(() => store.dispatch(InitLogin(routes)),0)
-        
+        store.dispatch(InitLogin(newRoutes))
+        history.push('/home')
     }
     const doLogout = (routes) =>{
         routes.map((item) => {
